@@ -120,19 +120,29 @@ fs.readFile(file, {encoding: 'utf-8'}, function(error, data){
 })
 ```
 
-To write the `json` object to a file, simply pass it to the `writeFile()`:
+To write the `json` object to a file, simply pass it to the `writeFile()` (the `write.js` file):
 
 ```
 ...
-var jsonFile = path.join(__dirname, 'customers.json')
-fs.writeFile(jsonFile, json 
+  var jsonFile = path.join(__dirname, 'customers.json')
+  fs.writeFile(jsonFile, JSON.stringify(json, null, 2), function(error){
+    if (error) return console.error('Error', error)
+    console.log('customer.json is written')
+  })
+  ```
 
+
+The use of  `JSON.stringify()` is important because we want to save the text representation of the JSON object. Without it, we would get `[Object]` in the file. The parameters `null` and 2 are not that important. They are simply to make JSON in the file look more human-readable by adding formatting.
+
+Speaking of buffers, we can pass a buffer at the content (second argument) to the `writeFile()` function.
+
+It's worth mentioning that `writeFile()` has a synchronous counterpart `writeFileSync()` analogous how `readFile` has `readFileSync`.
 
 ## Resources
 
-1. [](https://nodejs.org/api/fs.html)
-1. [](https://nodejs.org/api/buffer.html)
-1. []()
+1. [fs Official Documentation](https://nodejs.org/api/fs.html)
+1. [Buffer Official Documentation](https://nodejs.org/api/buffer.html)
+1. [writeFile Official Documentation](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback)
 
 
 ---
