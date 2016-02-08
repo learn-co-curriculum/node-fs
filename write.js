@@ -17,7 +17,7 @@ fs.readFile(file, {encoding: 'utf-8'}, function(error, data){
   })
   console.log(json)
   var jsonFile = path.join(__dirname, 'customers.json')
-  fs.writeFile(jsonFile, JSON.stringify(json), function(error){
+  fs.writeFile(jsonFile, JSON.stringify(json, null, 2), function(error){
     if (error) return console.error('Error', error)
     console.log('customer.json is written')
   })
