@@ -1,28 +1,29 @@
 # File System Module
 
-## Overview
-
-Have you ever needed to create a file or read from a file when you were building an application? Files can be used to store data permanently. Consider an app which take a user input from a web form (e.g., loan application), but unable to save it. All the data will be lost if the app crashes and frustrated users won't be able to save their progress to finish the input at a later date. Of course databases are better at storing such data, but files can be used to. 
-
-Another use case, if we are accepting user uploads such as images or audio files. Most likely, we'll want to read their content, transform (think Instagram) and store the images. But it's all out of reach of the browser JavaScript. Only server side technologies can perform file manipulation on the system.
-
-This lesson will cover the Node file system module which enables developers to write and read to/from files.
-
 ## Objectives
 
 1. Describe file reading method of fs
 1. Describe about buffer
 1. Describe how to convert buffer to a string
 
+
+## Overview
+
+Have you ever needed to create a file or read from a file when you were building an application? Files can be used to store data permanently. Consider an app which takes user input from a web form (e.g., loan application), but is unable to save it. All the data will be lost if the app crashes and frustrated users won't be able to save their progress to finish the form at a later date. Of course databases are better at storing such data, but files can be used to. 
+
+Another situation where files are using is if our app accepts user uploads such as images or audio files. Most likely, we'll want to read their content, transform, and store the images (just like Instagram). But it's all out of reach of the browser JavaScript. Only server side technologies can perform file manipulation on the system.
+
+This lesson will cover the Node file system module which enables developers to write and read to/from files.
+
 ## fs.readFile()
 
 First, we need to import the `fs` module and because it's a core module, we don't need to install it with npm (more on npm later).
 
 ```js
-var fs = require('fs')
+var fs = require('fs');
 ```
 
-To read a file from your file system, simply call the `readFile()` by passing two arguments: path and name of the file, and a callback function. The latter is the code which will have the file content which is the argument of the callback (`data`):
+To read a file from your file system, simply call the `readFile()` by passing two arguments: path and name of the file, and a callback function. The callback function will have the file content which is the argument of the callback (`data`):
 
 ```js
 var fs = require('fs')
