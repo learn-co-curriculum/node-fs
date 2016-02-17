@@ -63,7 +63,7 @@ As far as the `file` variable goes, it's a great idea to make the path work on P
 var file = path.join(__dirname, 'customers.csv')
 ```
 
-Write your own asynchronous script to read from `customers.csv`, or just run `read.js` with `$ node read`. If the result is something like this:
+Write your own asynchronous script to read from `customers.csv`, or just run `read.js` with `node read`. If the result is something like this:
 
 ```
 <Buffer 69 64 2c 66 69 72 73 74 5f 6e 61 6d 65 2c 6c 61 73 74 5f 6e 61 6d 65 2c 65 6d 61 69 6c 2c 67 65 6e 64 65 72 2c 69 70 5f 61 64 64 72 65 73 73 0a 31 2c ... >
@@ -97,7 +97,7 @@ So we know how to read from a file now, but what about writing or creating a fil
 
 ## fs.writeFile()
 
-To write data to a file, use `writeFile()` with arguments: file, data and callback. For example, we need to convert the aforementioned CSV file into JSON by creating a new file `customers.json`. We can read the CSV file, iterate over every line, create a customer object for each line with ID, first and last names, email, sex, and IP address:
+To write data to a file, use `writeFile()` with arguments: file, data and callback. For example, we need to convert the aforementioned CSV file into the file `customers.json`. We can read the CSV file, iterate over every line, create a customer object for each line with ID, first and last names, email, sex, and IP address:
 
 ```js
 var fs = require('fs')
@@ -123,17 +123,17 @@ fs.readFile(file, {encoding: 'utf-8'}, function(error, data){
 
 To write the `json` object to a file, simply pass it to the `writeFile()` (the `write.js` file):
 
-```
+```js
 ...
   var jsonFile = path.join(__dirname, 'customers.json')
   fs.writeFile(jsonFile, JSON.stringify(json, null, 2), function(error){
     if (error) return console.error('Error', error)
     console.log('customer.json is written')
   })
-  ```
+```
 
 
-The use of  `JSON.stringify()` is important because we want to save the text representation of the JSON object. Without it, we would get `[Object]` in the file. The parameters `null` and 2 are not that important. They are simply to make JSON in the file look more human-readable by adding formatting.
+The use of  `JSON.stringify()` is important because we want to save the text representation of the JSON object. Without it, we would get `[Object]` in the file. The parameters `null` and `2` are not that important. They are simply to make JSON in the file look more human-readable by adding formatting.
 
 Speaking of buffers, we can pass a buffer at the content (second argument) to the `writeFile()` function.
 
