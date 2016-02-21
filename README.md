@@ -27,6 +27,7 @@ To read a file from your file system, simply call the `readFile()` by passing tw
 
 ```js
 var fs = require('fs')
+var file = './fakepath/fakefilename.data'
 fs.readFile(file, function(error, data){
   if (error) return console.error('Error', error)
   console.log(data)
@@ -37,6 +38,7 @@ We need to check the `error` argument of the callback to make sure the `readFile
 
 ```js
 var fs = require('fs')
+var file = './fakepath/fakefilename.data'
 var data = fs.readFile(file, function(error, data){
   if (error) return console.error('Error', error)
 })
@@ -47,6 +49,7 @@ However, if you want to read the file synchronously (typically not recommended),
 
 ```js
 var fs = require('fs')
+var file = './fakepath/fakefilename.data'
 try {
   var data = fs.readFileSync(file)
   console.log(data)
@@ -73,7 +76,11 @@ That's right, because `data` is Buffer and not a string.
 
 ## Buffer
 
-Buffer is a special Node data type. Think about it a a binary type. In this example, buffer looks like a list of numbers and characters. If you're familiar with `TypedArray` in ECMAScript 2015 (ES6) then Buffer is very similar to it. We use buffers to binary data. The size of the buffer is fixed upon its creation. Buffer is a global object (`global.Buffer`), that's why we don't need to import it with `require()`. 
+Buffer is a special Node-exclusive data type (it does not exists in browser JavaScript). We use buffers for raw binary data. Think about buffer as a binary data type. Buffers are instances of the Buffer class which a global object (`global.Buffer`), that's why we don't need to import it with `require()`. 
+
+A typical buffer corresponds to some raw binary data. In this example, buffer looks like a list of numbers and characters. So buffers act somewhat like arrays of integers, but aren't resizable and have methods specifically for binary data. That's because the sizes of buffers are fixed upon their creations. 
+
+If you're familiar with `TypedArray` in ECMAScript 2015 (ES6), then Buffer is very similar to it. For more information on buffers and their methods, check out the resources for links.
 
 We can easily convert buffer to string and back by specifying the encoding. For example, we can convert our CSV data into a human readable string with `toString('utf-8')`:
 
@@ -144,7 +151,8 @@ It's worth mentioning that `writeFile()` has a synchronous counterpart `writeFil
 1. [fs Official Documentation](https://nodejs.org/api/fs.html)
 1. [Buffer Official Documentation](https://nodejs.org/api/buffer.html)
 1. [writeFile Official Documentation](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback)
-
+1. [Node.js Buffers Video from EggHead](https://egghead.io/lessons/node-js-node-js-buffers)
+1. [Node.js Buffers Video from Mastering NodeJS](https://www.youtube.com/watch?v=FVKO8wZNcnI)
 
 ---
 
