@@ -2,10 +2,9 @@
 
 ## Objectives
 
-1. Describe file reading method of fs
+1. Describe file reading method of `fs`
 1. Describe about buffer
 1. Describe how to convert buffer to a string
-
 
 ## Overview
 
