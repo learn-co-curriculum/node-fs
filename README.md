@@ -96,12 +96,13 @@ fs.readFile(file, {encoding: 'utf-8'}, function(error, data){
   console.log(data)
 })
 ```
+The code above can be found in `read-utf.js`. Go ahead and run this file in terminal to see the output.
 
 So we know how to read from a file now, but what about writing or creating a file? It's very straightforward and we also use buffers unless an encoding is provided.
 
 ## fs.writeFile()
 
-To write data to a file, use `writeFile()` with arguments: file, data and callback. For example, we need to convert the aforementioned CSV file into the file `customers.json`. We can read the CSV file, iterate over every line, create a customer object for each line with ID, first and last names, email, sex, and IP address:
+To write data to a file, use `writeFile()` with arguments: file, data and callback. For example, we need to convert the `customers.csv` file into the file `customers.json`. We can read the CSV file, iterate over every line, create a customer object for each line with ID, first and last names, email, sex, and IP address:
 
 ```js
 var fs = require('fs')
@@ -142,6 +143,8 @@ The use of  `JSON.stringify()` is important because we want to save the text rep
 Speaking of buffers, we can pass a buffer as the content (second argument) to the `writeFile()` function.
 
 It's worth mentioning that `writeFile()` has a synchronous counterpart `writeFileSync()` analogous how `readFile` has `readFileSync`.
+
+The above code can be found in `write.js`. Go ahead and run this code in the terminal to see the output.
 
 ## Resources
 
