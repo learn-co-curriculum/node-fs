@@ -139,7 +139,7 @@ To write the `json` object to a file, simply pass it to the `writeFile()` (the `
 
 The use of  `JSON.stringify()` is important because we want to save the text representation of the JSON object. Without it, we would get `[Object]` in the file. The parameters `null` and `2` are not that important. They are simply to make JSON in the file look more human-readable by adding formatting.
 
-Speaking of buffers, we can pass a buffer at the content (second argument) to the `writeFile()` function.
+Speaking of buffers, we can pass a buffer as the content (second argument) to the `writeFile()` function.
 
 It's worth mentioning that `writeFile()` has a synchronous counterpart `writeFileSync()` analogous how `readFile` has `readFileSync`.
 
