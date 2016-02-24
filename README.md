@@ -43,6 +43,7 @@ var data = fs.readFile(file, function(error, data){
 })
 console.log(data)
 ```
+You can find the code in `read.js`
 
 However, if you want to read the file synchronously (typically not recommended), then there's `readFileSync()` method. You can use it like this:
 
