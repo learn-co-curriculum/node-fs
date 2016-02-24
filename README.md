@@ -75,13 +75,11 @@ That's right, because `data` is Buffer and not a string.
 
 ## Buffer
 
-Buffer is a special Node-exclusive data type (it does not exists in browser JavaScript). We use buffers for raw binary data. Think about buffer as a binary data type. Buffers are instances of the Buffer class which a global object (`global.Buffer`), that's why we don't need to import it with `require()`. 
-
-A typical buffer corresponds to some raw binary data. In this example, buffer looks like a list of numbers and characters. So buffers act somewhat like arrays of integers, but aren't resizable and have methods specifically for binary data. That's because the sizes of buffers are fixed upon their creations. 
+Buffer is a special Node-exclusive data type (it does not exists in browser JavaScript). We use buffers for raw binary data. Think about buffer as a binary data type. You can think of a buffer as an array of integers, but instead of integers, the buffer is storing raw binary data. They aren't resizable and have methods specifically for binary data. That's because the sizes of buffers are fixed upon their creations. 
 
 If you're familiar with `TypedArray` in ECMAScript 2015 (ES6), then Buffer is very similar to it. For more information on buffers and their methods, check out the resources for links.
 
-We can easily convert buffer to string and back by specifying the encoding. For example, we can convert our CSV data into a human readable string with `toString('utf-8')`:
+We can easily convert a buffer to string and back by specifying the encoding. For example, we can convert our CSV data into a human readable string with `toString('utf-8')`:
 
 ```js
   console.log(data.toString('utf-8'))
